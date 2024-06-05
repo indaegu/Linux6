@@ -3,9 +3,41 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Linux6조</title>
+    <style>
+      body {
+        font-family: "Arial", sans-serif;
+        background-color: #f0f0f0;
+        color: #333;
+        text-align: center;
+        padding: 50px;
+      }
+      h1 {
+        color: #666;
+      }
+      #time {
+        color: #0066ff;
+        font-size: 24px;
+        margin-top: 20px;
+      }
+    </style>
   </head>
   <body>
     <h1>살아있네요</h1>
+    <div id="time"></div>
+    <script>
+      function updateTime() {
+        const now = new Date();
+        const hours = String(now.getHours()).padStart(2, "0");
+        const minutes = String(now.getMinutes()).padStart(2, "0");
+        const seconds = String(now.getSeconds()).padStart(2, "0");
+        const timeString = `${hours}:${minutes}:${seconds}`;
+        document.getElementById(
+          "time"
+        ).textContent = `현재 시간: ${timeString}`;
+      }
+      updateTime();
+      setInterval(updateTime, 1000); // 매초마다 시간 업데이트
+    </script>
   </body>
 </html>
